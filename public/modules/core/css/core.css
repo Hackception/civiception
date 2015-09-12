@@ -10,3 +10,6 @@
 .ng-valid.ng-dirty {
 	border-color: #78FA89;
 }
+.mm-page.mm-slideout .content {
+	margin-top: 80px;
+}

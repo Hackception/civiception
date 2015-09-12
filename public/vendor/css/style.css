@@ -753,6 +753,16 @@ padding-right       :20px;
     color           : #777777;
 }
 
+
+/* Media overwrite */
+.media, .media-body {
+  overflow: visible;
+}
+.media-body {
+  width: 100%;
+}
+
+
 /*FLAT ICON OVER WRITE*/
 
 [class^="flaticon-"]:before, [class*=" flaticon-"]:before,
@@ -2234,4 +2244,10 @@ transition          : all ease 200ms;
 .blog-sidebar  ul li a:hover{
     background  : rgba(272,45,40,0.9);
     color       : #ffffff;
+}
+
+
+/* OVERWRITES */
+#team {
+  padding-bottom: 0;
 }

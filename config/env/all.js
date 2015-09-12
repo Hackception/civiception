@@ -40,6 +40,7 @@ module.exports = {
 				'public/lib/angular-ui-router/release/angular-ui-router.js',
 				'public/lib/angular-ui-utils/ui-utils.js',
 				'public/lib/angular-bootstrap/ui-bootstrap-tpls.js',
+				'public/lib/lodash/lodash.js',
 				'public/vendor/js/jquery-1.11.1.js',
 				'public/vendor/js/modernizr-2.6.2.min.js',
 				'public/vendor/vendor/bootstrap/js/bootstrap.min.js',

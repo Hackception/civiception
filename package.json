@@ -1,0 +1,20 @@
+{
+  "name": "civiception",
+  "version": "0.0.0",
+  "description": "Global Hack V - Civic-minded Hackathon entry",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Hackception/civiception.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Hackception/civiception/issues"
+  },
+  "homepage": "https://github.com/Hackception/civiception",
+  "devDependencies": {
+    "bower": "^1.5.2"
+  }
+}

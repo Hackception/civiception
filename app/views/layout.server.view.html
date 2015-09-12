@@ -1,6 +1,8 @@
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
-
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en" xmlns="http://www.w3.org/1999/xhtml"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang="en" xmlns="http://www.w3.org/1999/xhtml"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang="en" xmlns="http://www.w3.org/1999/xhtml"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" xmlns="http://www.w3.org/1999/xhtml"> <!--<![endif]-->
 <head>
 	<title>{{title}}</title>
 
@@ -34,22 +36,59 @@
 	<!-- Fav Icon -->
 	<link href="/modules/core/img/brand/favicon.ico" rel="shortcut icon" type="image/x-icon">
 
+	<!-- Google Fonts -->
+	<link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:300italic,400italic,700italic,400,300,700' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,300,600,700' rel='stylesheet' type='text/css'>
+
 	<!--Application CSS Files-->
 	{% for cssFile in cssFiles %}<link rel="stylesheet" href="{{cssFile}}">{% endfor %}
 
 	<!-- HTML5 Shim -->
 	<!--[if lt IE 9]>
 		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<script>window.html5 || document.write('<script src="js/vendor/html5shiv.js"><\/script>')</script>
 	<![endif]-->
 </head>
 
 <body class="ng-cloak">
-	<header data-ng-include="'/modules/core/views/header.client.view.html'" class="navbar navbar-fixed-top navbar-inverse"></header>
-	<section class="content">
-		<section class="container">
-			{% block content %}{% endblock %}
+	<div class="main" id="home">
+		<header data-ng-include="'/modules/core/views/header.client.view.html'" class="header-part"></header>
+		<section class="content">
+			<section class="container">
+				{% block content %}{% endblock %}
+			</section>
 		</section>
-	</section>
+		<!-- MMENU -->
+		<nav id="menu">
+			<ul>
+				<!-- <li data-ng-repeat="item in menu.items | orderBy: 'position'" ng-switch="item.menuItemType" href="#">
+					<div dropdown="item.menuItemType === 'dropdown'">
+						<a href="#" ng-switch-when="dropdown">
+							<span data-ng-bind="item.title"></span>
+						</a>
+						<ul ng-switch-when="dropdown">
+							<li data-ng-repeat="subitem in item.items | orderBy: 'position'" ui-route="{{subitem.uiRoute}}">
+								<a href="/#!/{{subitem.link}}" data-ng-bind="subitem.title"></a>
+							</li>
+						</ul>
+						<a ng-switch-default href="/#!/{{item.link}}" data-ng-bind="item.title"></a>
+					</div>
+				</li> -->
+				<li><a href="#">home</a></li>
+				<li><a href="#about">about us</a></li>
+				<li><a href="#services">services</a></li>
+				<li><a href="#product">product</a></li>
+				<li><a href="#team">team</a></li>
+				<li><a href="#blog">blog</a>
+					<ul>
+						<li><a href="blog-full-width.html">full width blog</a></li>
+						<li><a href="blog-sidebar.html">sidebar blog</a></li>
+					</ul>
+				</li>
+				<li><a href="#contact">contact</a></li>
+			</ul>
+		</nav><!-- /#menu -->
+	</div>
 
 	<!--Embedding The User Object-->
 	<script type="text/javascript">
@@ -57,7 +96,7 @@
 	</script>
 
 	<!--Application JavaScript Files-->
-	{% for jsFile in jsFiles %}<script type="text/javascript" src="{{jsFile}}"></script>{% endfor %} 
+	{% for jsFile in jsFiles %}<script type="text/javascript" src="{{jsFile}}"></script>{% endfor %}
 
 	{% if process.env.NODE_ENV === 'development' %}
 	<!--Livereload script rendered -->

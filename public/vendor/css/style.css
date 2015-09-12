@@ -1470,7 +1470,7 @@ padding-top     : 19px;
     margin  : 0 0 15px 0;
 }
 
-.contact-wrapper .costom-btn{
+.contact-wrapper .costom-btn, .searches .costom-btn{
     width                       : 100%;
     background                  : rgba(232, 71, 0, 1);
     border                      : 1px solid #e84700;

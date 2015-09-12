@@ -13,3 +13,28 @@
 .mm-page.mm-slideout .content {
 	margin-top: 80px;
 }
+#main-img {
+	background: url(../../../vendor/img/counting-bg.jpg) no-repeat center center fixed;
+	background-size: cover;
+	position: relative;
+}
+#main-img:before {
+	position: absolute;
+	content: '';
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	background: rgba(0,0,0,.65);
+}
+.citation-search {
+	padding-top: 60px;
+}
+
+.citation-search form {
+	padding-top: 15px;
+}
+
+.searches {
+	padding: 100px;
+}

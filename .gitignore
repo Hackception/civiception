@@ -1,8 +1,0 @@
-# Logs
-logs
-*.log
-build
-
-# Dependency directory
-node_modules
-bower_components

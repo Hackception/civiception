@@ -31,8 +31,6 @@ angular.module('ticket').controller('TicketDetailsController', ['$scope', '$stat
 		 * @param {ViolationsSchema[]} violations
 		 */
 		function processViolations(violations) {
-			if (window._.isEmpty(violations)) invalidData();
-
 			$scope.model.violations = violations;
 		}
 

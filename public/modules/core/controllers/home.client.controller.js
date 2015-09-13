@@ -52,7 +52,7 @@ angular.module('core').controller('HomeController', ['$scope', 'Authentication',
 				$scope.citationSearchModel.dateOfBirth
 			).then(function (citations) {
 				if (!window._.isEmpty(citations)) {
-					$state.go('ticket-results');
+					$state.go('ticket');
 				} else {
 					return $q.reject('No results were found');
 				}

@@ -22,6 +22,11 @@ angular.module('ticket').factory('Ticket', [
 				if (window._.isEmpty(citations)) citations = undefined;
 				else citations = JSON.parse(citations);
 
+				if (!(citationNumber || driversLicense || firstName || lastName || dateOfBirth) &&
+					!window._.isEmpty(citations)) {
+					return $q.when(citations);
+				}
+
 				// When searching for a specific citation, check locatStorage first
 				if (!window._.isEmpty(citationNumber)) {
 					var citation = window._.find(citations, {citation_number: citationNumber});

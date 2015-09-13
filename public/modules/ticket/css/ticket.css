@@ -16,7 +16,7 @@ small.cit-sum {
   padding-bottom: 10px;
 }
 
-.panel-title .row.warrant {
+.row.warrant {
   border-left: 2.5px solid red;
 }
 .panel-title .row.amount-due {
@@ -58,4 +58,9 @@ small.cit-sum {
   .col-md-3.text-right {
     text-align: left;
   }
+}
+
+.violation-header {
+  margin-top: 45px;
+  margin-bottom: -10px;
 }

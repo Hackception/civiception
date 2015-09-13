@@ -12,8 +12,7 @@ angular.module('ticket').controller('TicketController', ['$scope', '$state', '$s
 
 		/* Functions */
 		$scope.hasWarrant = function (citation) {
-			return citation.warrant_status === 'TRUE';
-			// return true;
+			return !window._.isEmpty(window._.find(citation.violations, {warrant_status: 'TRUE'}));
 		};
 
 		$scope.isEligibleForService = function (citation) {
@@ -42,6 +41,10 @@ angular.module('ticket').controller('TicketController', ['$scope', '$state', '$s
 
 			window.location.href = citation.pay_online;
 		}
+
+		$scope.getTotal = function(violation) {
+			return Number(violation.fine_amount) + Number(violation.court_cost);
+		};
 
 		/**
 		 * Directs the user away from the details page with a nice message.

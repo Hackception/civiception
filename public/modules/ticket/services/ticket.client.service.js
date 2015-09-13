@@ -41,7 +41,6 @@ angular.module('ticket').factory('Ticket', [
 				.then(function (data) {
 					// Once we have citations, add them to the localStorage for offline use later.
 					window.localStorage.setItem('citations', JSON.stringify(data));
-					console.log('test', data)
 					return data;
 				});
 			},

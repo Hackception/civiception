@@ -41,12 +41,6 @@ angular.module('core').controller('HomeController', ['$scope', 'Authentication',
 			);
 		};
 
-		function handleFound(citations) {
-			//window.localStorage.setItem('tiket-results', angular.toJson(citations));
-
-			$state.go('ticket-results');
-		}
-
 		$scope.searchCitations = function () {
 			if (!$scope.isFormValid()) { return; }
 
@@ -57,11 +51,10 @@ angular.module('core').controller('HomeController', ['$scope', 'Authentication',
 				$scope.citationSearchModel.lastName,
 				$scope.citationSearchModel.dateOfBirth
 			).then(function (citations) {
-				console.log(citations)
 				if (!window._.isEmpty(citations)) {
-					handleFound(citations);
+					$state.go('ticket-results');
 				} else {
-					$q.reject('No results were found');
+					return $q.reject('No results were found');
 				}
 			}).catch(function (error) {
 				if (window._.isString(error)) {

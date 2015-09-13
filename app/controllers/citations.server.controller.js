@@ -25,8 +25,8 @@ exports.read = function(req, res) {
         res.json(citation);
       }
     });
-  } else if (!_.isEmpty(query.licenseNumber)) {
-    Citation.find({ drivers_license_number: query.licenseNumber }, function(err, citation) {
+  } else if (!_.isEmpty(query.driversLicense)) {
+    Citation.find({ drivers_license_number: query.driversLicense }, function(err, citation) {
       if (err) {
         return res.status(400).send({
           message: errorHandler.getErrorMessage(err)

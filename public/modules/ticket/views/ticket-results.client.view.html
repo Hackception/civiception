@@ -1,3 +1,9 @@
-<section data-ng-controller="TicketResultsController">
-	This is the Ticketsearch
+<section data-ng-controller="TicketResultsController" class="container">
+	<div ng-repeat="citation in model.results" class="row" ng-click="citationDetails(citation.citation_number)">
+		<span class="col-xs-3">{{ citation.citation_number }}</span>
+		<span class="col-xs-3 text-center">{{ citation.first_name }}</span>
+		<span class="col-xs-3 text-center">{{ citation.last_name }}</span>
+		<span class="col-xs-2 text-center">{{ citation.defendant_city }}</span>
+		<span class="col-xs-1 text-right">{{ citation.defendant_state }}</span>
+	</div>
 </section>

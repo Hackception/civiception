@@ -45,11 +45,15 @@
 
 			<div class="row">
 			  <!-- Link to create a calendar event? -->
-			  <span class="col-xs-4">{{ citation.court_date }}</span>
-			  <!-- Link to google maps for the address? -->
-			  <!-- Get directions link to path from the defendants address as well? -->
-			  <span class="col-xs-4 text-center">{{ citation.court_location }}</span>
-			  <span class="col-xs-4 text-right">{{ citation.court_address }}</span>
+			  <span ng-href="" class="col-xs-4">{{ citation.court_date }}</span>
+			  <a class="col-xs-4 text-center"
+					ng-href="#!/municipality/{{ citation.court_location }}">
+				 	{{ citation.court_location }}
+				</a>
+			  <a class="col-xs-4 text-right"
+					ng-href="https://www.google.com/maps/place/{{ citation.court_address }} {{ citation.court_location }}">
+					{{ citation.court_address }}
+				</a>
 			</div>
 
 			<div class="row">
@@ -61,7 +65,6 @@
 			  <div class="row">
 			    <span class="col-xs-4">{{ violation.violation_number }}</span>
 			    <span class="col-xs-4 text-center">{{ violation.violation_description}}</span>
-			    <!-- Create a warning icon that will link through to resolve the warrant -->
 			    <span class="col-xs-4 text-right">{{ violation.warrant_status }}</span>
 			  </div>
 
@@ -72,10 +75,8 @@
 			  </div>
 
 			  <div class="row">
-			    <!-- Add a filter to interpret this nicely for the user -->
 			    <span class="col-xs-6">{{ violation.fine_amount }}</span>
 			    <span class="col-xs-6 text-right">{{ violation.court_cost }}</span>
-			    <!-- Add a link to the pay online tool -->
 			  </div>
 
 			</div>

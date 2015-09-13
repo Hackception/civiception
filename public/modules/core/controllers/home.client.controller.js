@@ -1,8 +1,8 @@
 'use strict';
 
 
-angular.module('core').controller('HomeController', ['$scope', 'Authentication',
-	function($scope, Authentication) {
+angular.module('core').controller('HomeController', ['$scope', 'Authentication', 'Ticket', '$state', '$q',
+	function($scope, Authentication, Ticket, $state, $q) {
 		// This provides Authentication context.
 		$scope.authentication = Authentication;
 
@@ -39,7 +39,38 @@ angular.module('core').controller('HomeController', ['$scope', 'Authentication',
 					isNameSearchValid()
 				)
 			);
+		};
+
+		function handleFound(citations) {
+			//window.localStorage.setItem('tiket-results', angular.toJson(citations));
+
+			$state.go('ticket-results');
 		}
+
+		$scope.searchCitations = function () {
+			if (!$scope.isFormValid()) { return; }
+
+			Ticket.getCitations(
+				$scope.citationSearchModel.citationNumber,
+				$scope.citationSearchModel.licenseNumber,
+				$scope.citationSearchModel.firstName,
+				$scope.citationSearchModel.lastName,
+				$scope.citationSearchModel.dateOfBirth
+			).then(function (citations) {
+				console.log(citations)
+				if (!window._.isEmpty(citations)) {
+					handleFound(citations);
+				} else {
+					$q.reject('No results were found');
+				}
+			}).catch(function (error) {
+				if (window._.isString(error)) {
+					$scope.error = error;
+				} else {
+					$scope.error = 'Unknown Error';
+				}
+			});
+		};
 
 	}
 ]);

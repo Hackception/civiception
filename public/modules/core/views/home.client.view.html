@@ -28,7 +28,7 @@
 				<h2>By Citation Number</h2>
 				<!-- <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed accumsan venenatis lectus sed sollicitudin. </p> -->
 
-				<form name="citationSearch" id='citation_search' method="post" action='php/email.php'>
+				<form name="citationSearch" id='citation_search'>
 					<div class="form">
 						<div class="form-group">
 							<input type="text" class="form-control" name="citationNumber" required id="citationSearchInputNumber" placeholder="Citation Number" ng-model="citationSearchModel.citationNumber">
@@ -41,7 +41,7 @@
 				<h2>By Driver's License</h2>
 				<!-- <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed accumsan venenatis lectus sed sollicitudin. </p> -->
 
-				<form name="licenseSearch" id='license_search' method="post" action='php/email.php'>
+				<form name="licenseSearch" id='license_search'>
 					<div class="form">
 						<div class="form-group">
 							<input type="text" class="form-control" name="licenseNumber" required id="licenseSearchInputNumber" placeholder="Dirver's License Number" ng-model="citationSearchModel.licenseNumber">
@@ -53,7 +53,7 @@
 				<h2>By Name</h2>
 				<!-- <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed accumsan venenatis lectus sed sollicitudin. </p> -->
 
-				<form name="nameSearch" id='name_search' method="post" action='php/email.php'>
+				<form name="nameSearch" id='name_search'>
 					<div class="form">
 						<div class="form-group">
 							<input type="text" class="form-control" name="firstName" required id="nameSearchInputFirst" placeholder="First Name" ng-model="citationSearchModel.firstName">
@@ -74,9 +74,14 @@
 				<hr>
 			</div>
 		</div>
+		<div class="row" ng-if="error">
+			<div class="col-xs-12">
+				<div class="alert alert-danger" ng-bind="error"></div>
+			</div>
+		</div>
 		<div class="row">
 			<div class="col-xs-10 col-xs-offset-1">
-				<input type="submit" class="col-xs-12 btn btn-lg costom-btn" value="Search"
+				<input type="submit" class="col-xs-12 btn btn-lg costom-btn" value="Search" ng-click="searchCitations()"
 					ng-disabled="!isFormValid()">
 			</div>
 		</div>

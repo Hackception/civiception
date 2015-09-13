@@ -1,0 +1,10 @@
+.municipalities .municipality:nth-child(odd) {
+  background-color: #f5f5f5;
+}
+.municipalities .municipality:hover {
+  background-color: #ececec;
+  cursor: pointer;
+}
+.municipalities .headings span {
+  font-weight: bold;
+}

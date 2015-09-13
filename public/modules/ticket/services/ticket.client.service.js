@@ -36,7 +36,7 @@ angular.module('ticket').factory('Ticket', [
 					}
 				}
 
-				return $resource('/citations', {
+				return $resource('/api/citations', {
 					citationNumber: citationNumber,
 					driversLicense: driversLicense,
 					firstName: firstName,

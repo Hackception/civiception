@@ -28,7 +28,14 @@
 	background: rgba(0,0,0,.65);
 }
 .citation-search {
-	padding-top: 60px;
+	margin-top: 50px;
+	padding-top: 15px;
+	border-right: 1px solid #ccc;
+	padding-bottom: 15px;
+	min-height: 200px;
+}
+.citation-search:last-child {
+	border-right: none;
 }
 
 .citation-search form {

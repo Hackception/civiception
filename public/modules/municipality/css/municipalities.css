@@ -8,3 +8,6 @@
 .municipalities .headings span {
   font-weight: bold;
 }
+.municipality strong {
+  font-weight: bold;
+}

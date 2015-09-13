@@ -41,7 +41,7 @@ angular.module('ticket').controller('TicketController', ['$scope', '$state', '$s
 			$event.stopPropagation();
 
 			window.location.href = citation.pay_online;
-		}
+		};
 
 		/**
 		 * Directs the user away from the details page with a nice message.
@@ -65,7 +65,6 @@ angular.module('ticket').controller('TicketController', ['$scope', '$state', '$s
 						c.violations = violations;
 					}, invalidData);
 				Municipality.fetchByMunicipality(c.court_location).then(function (m) {
-					if (c.citation_number === 51327032) {console.log(m)}
 					if (m.municipal_court_website && m.online_payment_system_provider) {
 						c.pay_online = m.municipal_court_website;
 					}

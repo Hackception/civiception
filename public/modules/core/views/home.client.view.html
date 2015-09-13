@@ -28,12 +28,13 @@
 				<h2>By Citation Number</h2>
 				<!-- <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed accumsan venenatis lectus sed sollicitudin. </p> -->
 
-				<form name="citationSearch" id='citation_search'>
+				<form name="citationSearch" id='citation_search' ng-submit="searchCitations()">
 					<div class="form">
 						<div class="form-group">
 							<input type="text" class="form-control" name="citationNumber" required id="citationSearchInputNumber" placeholder="Citation Number" ng-model="citationSearchModel.citationNumber">
 						</div>
 					</div>
+					<input type="submit" class="hidden">
 				</form>
 
 			</div>
@@ -41,19 +42,20 @@
 				<h2>By Driver's License</h2>
 				<!-- <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed accumsan venenatis lectus sed sollicitudin. </p> -->
 
-				<form name="licenseSearch" id='license_search'>
+				<form name="licenseSearch" id='license_search' ng-submit="searchCitations()">
 					<div class="form">
 						<div class="form-group">
 							<input type="text" class="form-control" name="licenseNumber" required id="licenseSearchInputNumber" placeholder="Dirver's License Number" ng-model="citationSearchModel.licenseNumber">
 						</div>
 					</div>
+					<input type="submit" class="hidden">
 				</form>
 			</div>
 			<div class="col-xs-12 col-md-4 text-left citation-search">
 				<h2>By Name</h2>
 				<!-- <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed accumsan venenatis lectus sed sollicitudin. </p> -->
 
-				<form name="nameSearch" id='name_search'>
+				<form name="nameSearch" id='name_search' ng-submit="searchCitations()">
 					<div class="form">
 						<div class="form-group">
 							<input type="text" class="form-control" name="firstName" required id="nameSearchInputFirst" placeholder="First Name" ng-model="citationSearchModel.firstName">
@@ -64,7 +66,9 @@
 						<div class="form-group">
 							<input type="text" class="form-control" name "dateOfBirth" required id="nameSearchInputDate" placeholder="Date of Birth (mm/dd/yyyy)"
 								ng-pattern="/^(0?[1-9]|1[012])\/(0?[1-9]|[12][0-9]|3[01])\/(\d{4})$/" ng-model="citationSearchModel.dateOfBirth">
+						</div>
 					</div>
+					<input type="submit" class="hidden">
 				</form>
 
 			</div>

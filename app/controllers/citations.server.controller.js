@@ -22,7 +22,7 @@ exports.read = function(req, res) {
           message: errorHandler.getErrorMessage(err)
         });
       } else {
-        req.citation = citation;
+        res.json(citation);
       }
     });
   } else if (!_.isEmpty(query.licenseNumber)) {
@@ -50,6 +50,6 @@ exports.read = function(req, res) {
       }
     });
   } else {
-    res.json({});
+    res.json(req.citation);
   }
 };

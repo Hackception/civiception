@@ -36,15 +36,14 @@
 			</div>
 			<div class="row">
 			  <span class="col-xs-6"><small class="cit-sum">Defendant Address:</small>{{ citation.defendant_address }}</span>
-			  <span class="col-xs-6 text-right"><small class="cit-sum">Court Location:</small>{{ citation.court_location }}</span>
+			  <span class="col-xs-6 text-right"><small class="cit-sum">Court Location:</small><a ng-href="#!/municipality/{{ citation.court_location }}">{{ citation.court_location }}</a></span>
 			</div>
 			<div class="row">
 			  <span class="col-xs-6"><small class="cit-sum">Defendant City/State:</small>{{ citation.defendant_city }}, {{ citation.defendant_state }}</span>
-			  <span class="col-xs-6 text-right"><small class="cit-sum">Court Address:</small>{{ citation.court_address }}</span>
+			  <span class="col-xs-6 text-right"><small class="cit-sum">Court Address:</small><a ng-href="https://www.google.com/maps/place/{{ citation.court_address }} {{ citation.court_location }}">{{ citation.court_address }}</a></span>
 			</div>
 			<div class="row">
 			  <span class="col-xs-6"><small class="cit-sum">Defendant DOB:</small>{{ citation.date_of_birth }}</span>
-			  <!-- <span class="col-xs-3 text-right">{{ citation.drivers_license_number }}</span> -->
 			</div>
 			<div class="row">
 			  <span class="col-xs-6"><small class="cit-sum">Defendant License:</small>{{ citation.drivers_license_number }}</span>
@@ -62,8 +61,7 @@
 			    <span class="col-xs-4 text-right" ng-if="getTotal(violation) > 0"><small class="cit-sum">Total Fine:</small><span class="cost">{{ getTotal(violation) | currency }}</span></span>
 			  </div>
 
-			  <!-- <div class="row warrant" ng-if="hasWarrant(violation)"> -->
-			  <div class="row warrant">
+			  <div class="row warrant" ng-if="hasWarrantViolation(violation)">
 			    <span class="col-xs-6">
 						<small class="cit-sum">Warrant Number:</small>{{ violation.warrant_number }}
 					</span>

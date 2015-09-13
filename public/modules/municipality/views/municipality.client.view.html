@@ -1,0 +1,10 @@
+<section data-ng-controller="MunicipalityController" class="container municipality">
+	<div class="row">
+		<h2 class="col-xs-12">{{ model.municipality }}</h2>
+	</div>
+	<hr>
+	<div class="row" ng-repeat="key in model.municipalityKeys">
+		<strong class="col-xs-6 text-left">{{ key | prettyText }}:</strong>
+		<span class="col-xs-6 text-left" ng-bind-html="model.municipalityData[key] | linkMe"></span>
+	</div>
+</section>

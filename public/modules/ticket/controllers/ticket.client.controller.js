@@ -40,10 +40,14 @@ angular.module('ticket').controller('TicketController', ['$scope', '$state', '$s
 			$event.stopPropagation();
 
 			window.location.href = citation.pay_online;
-		}
+		};
 
 		$scope.getTotal = function(violation) {
 			return Number(violation.fine_amount) + Number(violation.court_cost);
+		};
+
+		$scope.hasWarrantViolation = function (violation) {
+			return violation.warrant_status === 'TRUE';
 		};
 
 		/**

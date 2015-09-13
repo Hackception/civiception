@@ -12,9 +12,11 @@
 		<span class="col-xs-4">Online Payment System Provider</span>
 	</div>
 	<div class="row municipality" ng-repeat="municipality in model.municipalities | filter: model.municipality"
-		ng-click="">
+		ng-click="model.toMunicipality(municipality.municipality)">
 		<span class="col-xs-4">{{ municipality.municipality }}</span>
-		<a ng-href="municipality.municipal_court_website" class="col-xs-4">{{ municipality.municipal_court_website }}</a>
+		<a class="col-xs-4" ng-click="model.toCourtWebsite($event, municipality)">
+			{{ municipality.municipal_court_website }}
+		</a>
 		<span class="col-xs-4">{{ municipality.online_payment_system_provider }}</span>
 	</div>
 </section>

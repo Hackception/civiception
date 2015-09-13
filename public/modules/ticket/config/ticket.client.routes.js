@@ -13,9 +13,9 @@ angular.module('ticket').config(['$stateProvider',
 			url: '/ticket',
 			templateUrl: 'modules/ticket/views/ticket.client.view.html'
 		}).
-		state('ticket-search', {
-			url: '/ticket/search',
-			templateUrl: 'modules/ticket/views/ticket-search.client.view.html'
+		state('ticket-results', {
+			url: '/ticket/results',
+			templateUrl: 'modules/ticket/views/ticket-results.client.view.html'
 		});
 	}
 ]);

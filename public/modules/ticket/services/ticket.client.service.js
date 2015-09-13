@@ -40,7 +40,7 @@ angular.module('ticket').factory('Ticket', [
 				}).query().$promise
 				.then(function (data) {
 					// Once we have citations, add them to the localStorage for offline use later.
-					window.localStorage.setItem('citations', data);
+					window.localStorage.setItem('citations', JSON.stringify(data));
 					return data;
 				});
 			},
@@ -55,7 +55,7 @@ angular.module('ticket').factory('Ticket', [
 					citationNumber: citationNumber
 				}).query().$promise
 				.then(function(data) {
-					window.localStorage.setItem('violations', data);
+					window.localStorage.setItem('violations', JSON.stringify(data));
 					return data;
 				}, function() {
 					// The API failed, check the localStorage for a backup (offline).

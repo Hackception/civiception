@@ -1,0 +1,20 @@
+<section data-ng-controller="MunicipalitiesController" class="container municipalities">
+	<div class="form-inline">
+		<label>
+			Municipality:
+			<input type="text" class="form-control" ng-model="model.municipality">
+		</label>
+	</div>
+	<hr>
+	<div class="row headings">
+		<span class="col-xs-4">Municipality</span>
+		<span class="col-xs-4">Court Website</span>
+		<span class="col-xs-4">Online Payment System Provider</span>
+	</div>
+	<div class="row municipality" ng-repeat="municipality in model.municipalities | filter: model.municipality"
+		ng-click="">
+		<span class="col-xs-4">{{ municipality.municipality }}</span>
+		<a ng-href="municipality.municipal_court_website" class="col-xs-4">{{ municipality.municipal_court_website }}</a>
+		<span class="col-xs-4">{{ municipality.online_payment_system_provider }}</span>
+	</div>
+</section>

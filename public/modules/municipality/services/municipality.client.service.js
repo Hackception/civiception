@@ -11,16 +11,20 @@ angular.module('municipality').factory('Municipality', [
 		 * Ensures we have data for municipalities stored.
 		 */
 		function fetchMunicipalities() {
-			municipalities = $resource('/municipalities').query().$promise
+			municipalities = $resource('/api/municipalities').query().$promise
 				.then(function(data) {
 					// Store the data for usage.
 					municipalities = data;
 					window.localStorage.setItem('municipalities', JSON.stringify(municipalities));
+
+					return municipalities;
 				}, function() {
 					// Revert back to localStorage instead.
 					municipalities = window.localStorage.getItem('municipalities');
 					if (municipalities) municipalities = JSON.parse(municipalities);
 					else municipalities = [];
+
+					return municipalities;
 				});
 		}
 

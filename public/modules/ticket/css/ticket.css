@@ -1,0 +1,48 @@
+.section-title {
+  padding-top     : 75px;
+  margin-bottom   : 75px;
+}
+.panel, .panel-group .panel {
+  border-radius: 0;
+}
+small.cit-sum {
+  margin-right: 5px;
+}
+
+.panel-title .row {
+  margin-top: -10px;
+  margin-bottom: -10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.panel-title .row.warrant {
+  border-left: 2.5px solid red;
+}
+.panel-title .row.amount-due {
+  border-left: 2.5px solid #337ab7;
+}
+
+.panel-title .fa-warning {
+  color: red !important;
+  padding-left: 2.5px;
+  padding-right: 7.5px;
+}
+
+.cost {
+  color: #337ab7;
+  padding-right: 7.5px;
+}
+
+.panel-title .fa {
+  margin-right: 7.5px;
+}
+
+@media(max-width:767px) {
+  .panel-title .fa-warning {
+    display: none;
+  }
+  .col-md-3.text-right {
+    text-align: left;
+  }
+}

@@ -4,10 +4,32 @@ angular.module('ticket').controller('TicketController', ['$scope', '$state', '$s
 	function($scope, $state, $stateParams, ticketSvc) {
 		/* Declarations */
 		$scope.model = {
-			citationNumber: $stateParams.citationNumber
+			citationNumber: $stateParams.citationNumber,
+			currentPage: 1,
+			maxSize: 10,
+			itemsPerPage: 3
 		};
 
 		/* Functions */
+		$scope.hasWarrant = function (citation) {
+			return citation.warrant_status === 'TRUE';
+			// return true;
+		};
+
+		$scope.getBalance = function (citation) {
+			if (citation.total_fine) { return citation.total_fine; }
+
+			var total = window._.sum(citation.violations, function (v) {
+				return Number(v.fine_amount) + Number(v.court_cost);
+			});
+			citation.total_fine = total;
+			return total;
+		};
+
+		$scope.hasOutstandingBance = function (citation) {
+			return $scope.getBalance(citation) > 0;
+		};
+
 		/**
 		 * Directs the user away from the details page with a nice message.
 		 */
@@ -24,20 +46,17 @@ angular.module('ticket').controller('TicketController', ['$scope', '$state', '$s
 			if (window._.isEmpty(citations)) invalidData();
 
 			$scope.model.citations = citations;
-		}
-		/**
-		 * Handle storing the violations and failing safely.
-		 *
-		 * @param {ViolationsSchema[]} violations
-		 */
-		function processViolations(violations) {
-			$scope.model.violations = violations;
+			window._.forEach(citations, function (c) {
+				ticketSvc.getViolations(c.citation_number)
+					.then(function (violations) {
+						c.violations = violations;
+					}, invalidData);
+			});
 		}
 
 		/* Initialization */
 		ticketSvc.getCitations($scope.model.citationNumber)
 		.then(processCitations, invalidData);
-		ticketSvc.getViolations($scope.model.citationNumber)
-		.then(processViolations, invalidData);
+
 	}
 ]);

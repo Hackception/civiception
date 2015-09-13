@@ -33,7 +33,6 @@ exports.list = function(req, res) {
  * MunicipalCourtWebsites middleware
  */
 exports.byMunicipality = function(req, res, next, municipality) {
-  console.log(municipality)
 	MunicipalCourtWebsite.find({municipality: municipality}, function(err, municipalCourtWebsites) {
 		if (err) return next(err);
 		if (!municipalCourtWebsites) return next(new Error('Failed to load Municipality ' + municipalCourtWebsites));

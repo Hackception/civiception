@@ -31,7 +31,7 @@
 				<form name="citationSearch" id='citation_search' method="post" action='php/email.php'>
 					<div class="form">
 						<div class="form-group">
-							<input type="text" class="form-control" name="citationNumber" id="citationSearchInputNumber" placeholder="Citation Number" >
+							<input type="text" class="form-control" name="citationNumber" required id="citationSearchInputNumber" placeholder="Citation Number" ng-model="citationSearchModel.citationNumber">
 						</div>
 					</div>
 				</form>
@@ -44,7 +44,7 @@
 				<form name="licenseSearch" id='license_search' method="post" action='php/email.php'>
 					<div class="form">
 						<div class="form-group">
-							<input type="text" class="form-control" name="licenseNumber" id="licenseSearchInputNumber" placeholder="Dirver's License Number" >
+							<input type="text" class="form-control" name="licenseNumber" required id="licenseSearchInputNumber" placeholder="Dirver's License Number" ng-model="citationSearchModel.licenseNumber">
 						</div>
 					</div>
 				</form>
@@ -56,11 +56,14 @@
 				<form name="nameSearch" id='name_search' method="post" action='php/email.php'>
 					<div class="form">
 						<div class="form-group">
-							<input type="text" class="form-control" name="firstName" id="nameSearchInputFirst" placeholder="First Name" >
+							<input type="text" class="form-control" name="firstName" required id="nameSearchInputFirst" placeholder="First Name" ng-model="citationSearchModel.firstName">
 						</div>
 						<div class="form-group">
-							<input type="text" class="form-control" name="lastName" id="nameSearchInputLast" placeholder="Last Name" >
+							<input type="text" class="form-control" name="lastName" required id="nameSearchInputLast" placeholder="Last Name" ng-model="citationSearchModel.lastName">
 						</div>
+						<div class="form-group">
+							<input type="text" class="form-control" name "dateOfBirth" required id="nameSearchInputDate" placeholder="Date of Birth (mm/dd/yyyy)"
+								ng-pattern="/^(0?[1-9]|1[012])\/(0?[1-9]|[12][0-9]|3[01])\/(\d{4})$/" ng-model="citationSearchModel.dateOfBirth">
 					</div>
 				</form>
 
@@ -73,7 +76,8 @@
 		</div>
 		<div class="row">
 			<div class="col-xs-10 col-xs-offset-1">
-				<input type="submit" class="col-xs-12 btn btn-lg costom-btn" value="Search" >
+				<input type="submit" class="col-xs-12 btn btn-lg costom-btn" value="Search"
+					ng-disabled="!isFormValid()">
 			</div>
 		</div>
 

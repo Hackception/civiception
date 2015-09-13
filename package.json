@@ -2,6 +2,7 @@
 	"name": "civiception",
 	"description": "Full-Stack JavaScript with MongoDB, Express, AngularJS, and Node.js",
 	"version": "0.0.1",
+  "license": "MIT",
 	"engines": {
 		"node": "0.10.x",
 		"npm": "1.4.x"

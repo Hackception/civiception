@@ -3,7 +3,8 @@
 angular.module('ticket').factory('Ticket', [
 	'$resource',
 	'$q',
-	function($resource, $q) {
+	'Authentication',
+	function($resource, $q, Authentication) {
 
 		// Public API
 		return {
@@ -60,9 +61,12 @@ angular.module('ticket').factory('Ticket', [
 					citationNumber: citationNumber
 				}).query().$promise
 				.then(function(data) {
+					if (!Authentication.user) { return []; }
 					window.localStorage.setItem('violations', JSON.stringify(data));
 					return data;
 				}, function() {
+					if (!Authentication.user) { return []; }
+
 					// The API failed, check the localStorage for a backup (offline).
 					var violations = window.localStorage.getItem('violations');
 					if (window._.isEmpty(violations)) violations = undefined;

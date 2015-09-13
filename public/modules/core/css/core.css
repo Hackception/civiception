@@ -38,6 +38,16 @@
 	border-right: none;
 }
 
+@media (max-width: 979px) {
+	.citation-search {
+		border-right: none;
+		border-bottom: 1px solid #ccc;
+	}
+	.citation-search:last-child {
+		border-bottom: none;
+	}
+}
+
 .citation-search form {
 	padding-top: 15px;
 }

@@ -28,6 +28,9 @@ angular.module('ticket').factory('Ticket', [
 					return $q.when(citations);
 				}
 
+				// Validate the dateOfBirth doesn't have leading 0's
+				dateOfBirth = dateOfBirth.replace(/0\d/g, function(v) {return Number(v).toString();});
+
 				// When searching for a specific citation, check locatStorage first
 				if (!window._.isEmpty(citationNumber)) {
 					var citation = window._.find(citations, {citation_number: citationNumber});

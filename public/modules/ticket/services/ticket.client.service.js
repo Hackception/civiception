@@ -56,7 +56,7 @@ angular.module('ticket').factory('Ticket', [
 			* @returns {ViolationsSchema[]}
 			*/
 			getViolations: function(citationNumber) {
-				return $resource('violations/:citationNumber', {
+				return $resource('/api/violations/:citationNumber', {
 					citationNumber: citationNumber
 				}).query().$promise
 				.then(function(data) {

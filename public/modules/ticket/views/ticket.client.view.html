@@ -21,7 +21,7 @@
 					</div>
 					<div class="col-md-3 col-sm-12 text-right" ng-if="hasOutstandingBance(citation)">
 						<small class="cit-sum">Amount Due:</small><span class="cost">{{getBalance(citation) | currency}}</span>
-						<strong ng-if="citation.pay_online" ng-href="{{citation.pay_online}}">Pay Now</strong>
+						<a ng-if="citation.pay_online" ng-click="goToWebsite($event, citation)" href="javascript.void(0);">Pay Now</a>
 					</div>
 				</div>
 			</accordion-heading>

@@ -45,6 +45,12 @@ small.cit-sum {
   margin-right: 7.5px;
 }
 
+.panel-title .col-md-3 a {
+  font-weight: bold;
+  color: rgb(96, 101, 119);
+  text-decoration: underline !important;
+}
+
 @media(max-width:767px) {
   .panel-title .fa-warning {
     display: none;

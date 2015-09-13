@@ -39,7 +39,7 @@ angular.module('municipality').factory('Municipality', [
 			fetchByMunicipality: function(municipality) {
 				return $q.when(municipalities)
 					.then(function(munis) {
-						return window._.filter(munis, {municipality: municipality});
+						return window._.find(munis, {municipality: municipality});
 					});
 			}
 		};

@@ -1,7 +1,7 @@
 'use strict';
 
-angular.module('ticket').controller('TicketController', ['$scope', '$state', '$stateParams', 'Ticket',
-	function($scope, $state, $stateParams, ticketSvc) {
+angular.module('ticket').controller('TicketController', ['$scope', '$state', '$stateParams', 'Ticket', 'Municipality',
+	function($scope, $state, $stateParams, ticketSvc, Municipality) {
 		/* Declarations */
 		$scope.model = {
 			citationNumber: $stateParams.citationNumber,
@@ -13,6 +13,11 @@ angular.module('ticket').controller('TicketController', ['$scope', '$state', '$s
 		/* Functions */
 		$scope.hasWarrant = function (citation) {
 			return citation.warrant_status === 'TRUE';
+			// return true;
+		};
+
+		$scope.isEligibleForService = function (citation) {
+			return citation.community_service_eligibility;
 			// return true;
 		};
 
@@ -28,6 +33,7 @@ angular.module('ticket').controller('TicketController', ['$scope', '$state', '$s
 
 		$scope.hasOutstandingBance = function (citation) {
 			return $scope.getBalance(citation) > 0;
+			// return true;
 		};
 
 		/**
@@ -51,6 +57,11 @@ angular.module('ticket').controller('TicketController', ['$scope', '$state', '$s
 					.then(function (violations) {
 						c.violations = violations;
 					}, invalidData);
+				Municipality.fetchByMunicipality(c.cout_location).then(function (m) {
+					if (m.municipal_court_website && m.online_payment_system_provider) {
+						c.pay_online = m.municipal_court_website;
+					}
+				});
 			});
 		}
 

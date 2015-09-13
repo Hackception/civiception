@@ -20,6 +20,9 @@ small.cit-sum {
   border-left: 2.5px solid red;
 }
 .panel-title .row.amount-due {
+  border-left: 2.5px solid green;
+}
+.panel-title .row.service {
   border-left: 2.5px solid #337ab7;
 }
 
@@ -29,8 +32,12 @@ small.cit-sum {
   padding-right: 7.5px;
 }
 
-.cost {
+.panel-title .fa-info-circle {
   color: #337ab7;
+  padding-right: 7.5px;
+}
+.cost {
+  color: green;
   padding-right: 7.5px;
 }
 

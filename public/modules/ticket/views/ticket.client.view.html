@@ -7,9 +7,10 @@
 	<accordion close-others="true">
 		<accordion-group ng-repeat="citation in model.citations | startFrom:(model.currentPage-1)*model.itemsPerPage | limitTo:model.itemsPerPage">
 			<accordion-heading>
-				<div class="row text-left" ng-class="{'warrant': hasWarrant(citation), 'amount-due': hasOutstandingBance(citation) && !hasWarrant(citation)}">
+				<div class="row text-left" ng-class="{'warrant': hasWarrant(citation), 'amount-due': hasOutstandingBance(citation) && !hasWarrant(citation), 'service': isEligibleForService(citation)}">
 					<div class="col-md-3 col-sm-12">
 						<i class="fa fa-warning" ng-if="hasWarrant(citation)"></i>
+						<i class="fa fa-info-circle" ng-if="isEligibleForService(citation) && !hasWarrant(citation)"></i>
 						<small class="cit-sum">Citation Number:</small>{{ citation.citation_number }}
 					</div>
 					<div class="col-md-3 col-sm-12">
@@ -20,7 +21,7 @@
 					</div>
 					<div class="col-md-3 col-sm-12 text-right" ng-if="hasOutstandingBance(citation)">
 						<small class="cit-sum">Amount Due:</small><span class="cost">{{getBalance(citation) | currency}}</span>
-						<strong>Pay Now</strong>
+						<strong ng-if="citation.pay_online" ng-href="{{citation.pay_online}}">Pay Now</strong>
 					</div>
 				</div>
 			</accordion-heading>

@@ -29,7 +29,7 @@ angular.module('ticket').factory('Ticket', [
 				}
 
 				// Validate the dateOfBirth doesn't have leading 0's
-				dateOfBirth = dateOfBirth.replace(/0\d/g, function(v) {return Number(v).toString();});
+				if (dateOfBirth) dateOfBirth = dateOfBirth.replace(/0\d/g, function(v) {return Number(v).toString();});
 
 				// When searching for a specific citation, check locatStorage first
 				if (!window._.isEmpty(citationNumber)) {

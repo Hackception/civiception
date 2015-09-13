@@ -43,10 +43,10 @@
 			  <span class="col-xs-6 text-right"><small class="cit-sum">Court Address:</small><a ng-href="https://www.google.com/maps/place/{{ citation.court_address }} {{ citation.court_location }}">{{ citation.court_address }}</a></span>
 			</div>
 			<div class="row">
-				<a class="pull-right text-right" ng-href="https://maps.google.com/saddr=Current+Location&daddr={{ citation.court_address }} {{ citation.court_location }}">Get Directions</a>
 			</div>
 			<div class="row">
 			  <span class="col-xs-6"><small class="cit-sum">Defendant DOB:</small>{{ citation.date_of_birth }}</span>
+				<a class="col-xs-6 text-right" ng-href="https://maps.google.com?saddr=Current+Location&daddr={{ citation.court_address }} {{ citation.court_location }}">Get Directions</a>
 			</div>
 			<div class="row">
 			  <span class="col-xs-6"><small class="cit-sum">Defendant License:</small>{{ citation.drivers_license_number }}</span>
